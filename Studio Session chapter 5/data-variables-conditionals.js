@@ -15,66 +15,46 @@ let minimumFuelTemp = -300;
 let maximumFuelTemp = -150;
 let fuelLevel = "100%";
 let weatherStatus = "clear";
-let preparedForLiftOff = true;
+let preparedForLiftOff = false;
+
 
 // add logic below to verify total number of astronauts for shuttle launch does not exceed 7
-//if astronautCount is no greater than 7
-if (astronautCount >! 7) {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
+if (astronautCount >! 7) 
 // add logic below to verify all astronauts are ready
-//if astronautStatus is ready
-if (astronautStatus = "ready") {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
+if (astronautStatus = "ready") 
 // add logic below to verify the total mass does not exceed the maximum limit of 850000
-//if the totalMassKg is less than the maximumMassLimit of 85000
-if (totalMassKg <= maximumMassLimit) {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
+if (totalMassKg <= maximumMassLimit) 
 // add logic below to verify the fuel temperature is within the appropriate range of -150 and -300
-//if the fuelTempCelsius is no less than -300 OR no greater than -150
-if (fuelTempCelsius <! minimumFuelTemp || fuelTempCelsius >! maximumFuelTemp) {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
+if (fuelTempCelsius <! minimumFuelTemp || fuelTempCelsius >! maximumFuelTemp) 
 // add logic below to verify the fuel level is at 100%
-//if fuelLevel is at 100%
-if (fuelLevel = "100%") {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
+if (fuelLevel = "100%")
 // add logic below to verify the weather status is clear
-//if weatherStatus is clear
-if (weatherStatus = "clear") {
-    console.log("fizz")
-} else {
-    console.log("buzz")
-}
-// Verify shuttle launch can proceed based on above conditions
+if (weatherStatus = "clear") 
 
-if ((astronautCount >! 7) && (astronautStatus = "ready") && (totalMassKg <= maximumMassLimit) && (fuelTempCelsius <! minimumFuelTemp || fuelTempCelsius >! maximumFuelTemp) && (fuelLevel = "100%") && (weatherStatus = "clear")) {
+
+// Verify shuttle launch can proceed based on above conditions
+if (
+    (astronautCount >! 7) && 
+    (astronautStatus = "ready") && 
+    (totalMassKg <= maximumMassLimit) && 
+    (fuelTempCelsius <! minimumFuelTemp || fuelTempCelsius >! maximumFuelTemp) && 
+    (fuelLevel = "100%") && 
+    (weatherStatus = "clear")
+    ) {
     preparedForLiftOff = true
-    console.log("All systems are a go! Initiating space shuttle launch sequence.")
-    console.log("----------------------------------------")
-    console.log("Date:", date);
-    console.log("Time:", time);
-    console.log("Astronaut Count:", astronautCount);
-    console.log("Crew Mass:", crewMassKg);
-    console.log("Fuel Mass:", fuelMassKg);
-    console.log("Shuttle Mass:", shuttleMassKg);
-    console.log("Total Mass:", totalMassKg);
-    console.log("Fuel Temperature:", fuelTempCelsius);
-    console.log("Weather Status:", weatherStatus);
-    console.log("Have a safe trip, astronauts!");
+    console.log("All systems are a go! Initiating space shuttle launch sequence",
+         "\n----------------------------------------",
+         "\nDate:", date,
+         "\nTime:", time, 
+         "\nAstronaut Count:", astronautCount, 
+         "\nCrew Mass:", crewMassKg, 
+         "\nFuel Mass:", fuelMassKg, 
+         "\nShuttle Mass:", shuttleMassKg, 
+         "\nTotal Mass:", totalMassKg, 
+         "\nFuel Temperature:", fuelTempCelsius, 
+         "\nWeather Status:", weatherStatus,
+         "\n----------------------------------------",
+         "\nHave a safe trip, astronauts!");
 } else {
     preparedForLiftOff = false
     console.log("harry we have a houdini")
