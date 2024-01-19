@@ -47,9 +47,9 @@ console.log(str.slice)
     let strEnd = '';
     let strFinal = '';
 
-    strInput = input.question("Enter a number from 1-9: ");
+    strInput = Number(input.question("Enter a number from 1-9: "));
 
-    if (Number(strInput) > 9 || Number(strInput) < 1){
+    if (strInput > 9 || strInput < 1){
         console.log('Input outside of range, defaulting to "3"')
         strInput = 3
         strStart = str.slice(0, strInput);
