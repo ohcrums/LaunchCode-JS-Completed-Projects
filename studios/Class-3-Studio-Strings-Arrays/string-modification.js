@@ -24,20 +24,20 @@ console.log(str.slice)
 }
 //2) Modify your code to accept user input. Query the user to enter the number of letters that will be relocated.
 {
-    let strInput = '';
-    let strStart = '';
-    let strCalc = '';
-    let strEnd = '';
-    let strFinal = '';
+    // let strInput = '';
+    // let strStart = '';
+    // let strCalc = '';
+    // let strEnd = '';
+    // let strFinal = '';
 
-    strInput = input.question("Enter a number from 1-9: ")
+    // strInput = input.question("Enter a number from 1-9: ")
 
-    strStart = str.slice(0, strInput);
-    strCalc = strStart.length - str.length;
-    strEnd = str.slice(strCalc);
-    strFinal = strEnd.concat(strStart);
+    // strStart = str.slice(0, strInput);
+    // strCalc = strStart.length - str.length;
+    // strEnd = str.slice(strCalc);
+    // strFinal = strEnd.concat(strStart);
 
-    console.log(strFinal)
+    // console.log(strFinal)
 }
 //3) Add validation to your code to deal with user inputs that are longer than the word. In such cases, default to moving 3 characters. Also, the template literal should note the error.
 {
@@ -47,15 +47,21 @@ console.log(str.slice)
     let strEnd = '';
     let strFinal = '';
 
-    strInput = input.question("Enter a number from 1-9: ")
+    strInput = input.question("Enter a number from 1-9: ");
 
-    if (strInput.length >= 10){
-        console.log('too long')
+    if (Number(strInput) > 9 || Number(strInput) < 1){
+        console.log('Input outside of range, defaulting to "3"')
+        strInput = 3
+        strStart = str.slice(0, strInput);
+        strCalc = strStart.length - str.length;
+        strEnd = str.slice(strCalc);
+        strFinal = strEnd.concat(strStart);
+        console.log(`LaunchCode? Moar like ${strFinal} amirite? hehe.heh.`)
     } else {
         strStart = str.slice(0, strInput);
         strCalc = strStart.length - str.length;
         strEnd = str.slice(strCalc);
         strFinal = strEnd.concat(strStart);
         console.log(`LaunchCode? Moar like ${strFinal} amirite? hehe.heh.`)
-    }
+    };
 }
