@@ -9,6 +9,13 @@
 // 5. Use console.log(reverseCharacters(myVariableName)); to call the function and verify that it correctly reverses the characters in the string.
 // 6. Optional: Use method chaining to reduce the lines of code within the function.
 
+// function reverseCharacters(forwardString) {
+//     reverseString = forwardString.split('').reverse().join('');
+//     return reverseString;
+// }
+// let inputString = 'HENLO i am launchcode student man happy to be hear';
+// console.log(reverseCharacters(inputString));
+
 // Part Two: Reverse Digits
 
 // 1. Add an if statement to reverseCharacters to check the typeof the parameter.
@@ -16,6 +23,19 @@
 // 3. If typeof is ’number’, convert the parameter to a string, reverse the characters, then convert it back into a number.
 // 4. Return the reversed number.
 // 5. Be sure to print the result returned by the function to verify that your code works for both strings and numbers. Do this before moving on to the next exercise.
+
+
+function reverseCharacters(forwardString) {
+    if (typeof(forwardString) == 'string') {
+        reverseString = forwardString.split('').reverse().join('');
+    } else if (typeof(forwardString) == 'number') {
+        reverseString = forwardString.toString().split('').reverse().join('');
+        reverseString = Number(reverseString);
+    }
+    return reverseString;
+}
+// let inputString = '73';
+// console.log(reverseCharacters(inputString));
 
 // Part Three: Complete Reversal
 
@@ -30,13 +50,22 @@ let arrayTest1 = ['apple', 'potato', 'Capitalized Words'];
 let arrayTest2 = [123, 8897, 42, 1168, 8675309];
 let arrayTest3 = ['hello', 'world', 123, 'orange'];
 
+function reverseContainers(forwardArray) {
+    let reverseArray = [];
+    for (i = 0; i < forwardArray.length; i++){
+        reverseArray.push(reverseCharacters(forwardArray[i]));
+    }
+    return reverseArray.reverse();
+}
+
+console.log(reverseContainers(arrayTest3));
+
 // Bonus Missions
 
 // 1. Have a clear, descriptive name like funPhrase.
 // 2. Retrieve only the last character from strings with lengths of 3 or less.
 // 3. Retrieve only the first 3 characters from strings with lengths larger than 3.
 // 4. Use a template literal to return the phrase We put the '___' in '___'. Fill the first blank with the modified string, and fill the second blank with the original string.
-
 // Test Function
 
 // 1. Outside of the function, define the variable str and initialize it with a string (e.g. 'Functions rock!').
