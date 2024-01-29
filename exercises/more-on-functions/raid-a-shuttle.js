@@ -8,6 +8,18 @@ function checkFuel(level) {
   }
 }
 
+let nonSuspiciousFunction = function(a) {
+  if (checkFuel(a) === 'green') {
+     return a - 100001;
+  }
+  else if (checkFuel(a) === 'yellow') {
+     return a - 50001;
+  }
+  else {
+     return a;
+  }
+};
+
 function holdStatus(arr){
   if (arr.length < 7) {
     return `Spaces available: ${7-arr.length}.`;
@@ -18,14 +30,34 @@ function holdStatus(arr){
   }
 }
 
+let pirateFunc = function(cargoArr) {
+  if (cargoArr.length >= 2) {
+    let stole = cargoArr.slice(0, 2);
+    cargoArr.splice(0, 2, 'empty container', 'bag of rocks');
+    return stole;
+  } else {
+    return [];
+  }
+}
+
+
 let fuelLevel = 200000;
 let cargoHold = ['meal kits', 'space suits', 'first-aid kit', 'satellite', 'gold', 'water', 'AE-35 unit'];
+
+let irs = function(levelOfFuel, itemsInCargo) {
+  let arr = pirateFunc(itemsInCargo);
+  fuelLevel = nonSuspiciousFunction(fuelLevel);
+  return `Raided ${nonSuspiciousFunction(fuelLevel)} kg of fuel from the tanks, and stole ${arr[0]} and ${arr[1]} from the cargo hold.`
+}
+console.log(irs(fuelLevel, cargoHold));
 
 console.log("Fuel level: " + checkFuel(fuelLevel));
 console.log("Hold status: " + holdStatus(cargoHold));
 
-/* Steal some fuel from the shuttle:
- * /
+
+
+
+// Steal some fuel from the shuttle:
  
 //a). Define an anonymous function and set it equal to a variable with a normal, non-suspicious name. The function takes one parameter. This will be the fuel level on the shuttle.
 
@@ -35,8 +67,7 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Decide where to best place your function call to gather our new fuel.
 
-/* Next, liberate some of that glorious cargo.
- * /
+// Next, liberate some of that glorious cargo.
 
 //a). Define another anonymous function with an array as a parameter, and set it equal to another innocent variable.
 
@@ -46,8 +77,8 @@ console.log("Hold status: " + holdStatus(cargoHold));
 
 //d). Don’t get hasty, matey! Remember to test your function.
 
-/* Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
- * /
+// Finally, you need to print a receipt for the accountant. Don’t laugh! That genius knows MATH and saves us more gold than you can imagine.
+
  
 //a). Define a function called irs that can take fuelLevel and cargoHold as arguments.
 	
