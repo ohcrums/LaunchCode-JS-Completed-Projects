@@ -31,14 +31,15 @@ function holdStatus(arr){
 }
 
 let pirateFunc = function(cargoArr) {
+  let fakeCargo = ['empty container', 'bag of rocks', 'box of feral cats', 'ant farm', 'prototype gigaLazer (broken)', 'cracked fuel rod'];
   if (cargoArr.length >= 2) {
     let stole = cargoArr.slice(0, 2);
-    cargoArr.splice(0, 2, 'empty container', 'bag of rocks');
+    cargoArr.splice(0, 2, fakeCargo, fakeCargo);
     return stole;
   } else {
     return [];
   }
-}
+};
 
 
 let fuelLevel = 200000;
