@@ -68,4 +68,4 @@ let candidateF = {
 let animals = [candidateA,candidateB,candidateC,candidateD,candidateE,candidateF];
 
 // Code your template literal and console.log statements:
-console.log(buildCrewArray(idNumbers, animals));
+console.log(`${}` buildCrewArray(idNumbers, animals)); 

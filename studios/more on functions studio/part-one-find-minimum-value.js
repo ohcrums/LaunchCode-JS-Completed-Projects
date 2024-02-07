@@ -7,8 +7,8 @@ let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
 function findLowestNum(numArr) {
     //body
-    let lowNum = numArr[i];
-    for (let i = 1; i < numArr.length; i++) {
+    let lowNum = numArr[0];
+    for (let i = 0; i < numArr.length; i++) {
         if (numArr[i] < lowNum) {
         lowNum = numArr[i];
     }
@@ -20,3 +20,5 @@ function findLowestNum(numArr) {
 //Using one of the test arrays as the argument, call your function inside the console.log statement below.
 
 console.log(findLowestNum(nums1))
+console.log(findLowestNum(nums2))
+console.log(findLowestNum(nums3))
