@@ -1,25 +1,40 @@
-function findMinValue(arr){
+function findLowestNum(arr) {
+  // grab first index of array and store in local variable
   let min = arr[0];
-  let minArr = [];
-  for (i = 0; i < arr.length; i++){
-    if (arr[i] < min){
+  // find lowest number in arr and set min to that value
+  for (i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
       min = arr[i];
-      minArr = [arr[i]];
     }
   }
-  arr.splice(arr.indexOf(min), 1);
-  console.log(minArr);
   return min;
-}
+};
+
+
+function manualSortFunc(arr) {
+  // declare output array
+  let sortArr = [];
+  // iterate through array until input array is empty
+  while (arr.length > 0) {
+    // call function to find lowest num from input array, save in local variable
+    let min = findLowestNum(arr)
+    // splice lowest number from input array
+    arr.splice(arr.indexOf(min), 1);
+    // add lowest number to end of new array
+    sortArr.push(min);
+  }
+  return sortArr;
+};
 
 let nums1 = [5, 10, 2, 42];
 let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
 
-console.log(findMinValue(nums1));
-console.log(findMinValue(nums2));
-console.log(findMinValue(nums3));
+console.log(manualSortFunc(nums1));
+console.log(nums1)
+console.log(manualSortFunc(nums2));
+console.log(manualSortFunc(nums3));
 
 
 //Create a function with an array of numbers as its parameter. This function will return a new array with the numbers sorted from least to greatest value.

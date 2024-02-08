@@ -5,15 +5,16 @@ let nums1 = [5, 10, 2, 42];
 let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
 let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
 
-function findLowestNum(numArr) {
-    //body
-    let lowNum = numArr[0];
-    for (let i = 0; i < numArr.length; i++) {
-        if (numArr[i] < lowNum) {
-        lowNum = numArr[i];
+function findLowestNum(arr) {
+  // grab first index of array and store in local variable
+  let min = arr[0];
+  // find lowest number in arr and set min to that value
+  for (i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
     }
-    }
-    return lowNum;
+  }
+  return min;
 };
 
 
