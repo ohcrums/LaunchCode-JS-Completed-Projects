@@ -1,31 +1,35 @@
 // Code your selectRandomEntry function here:
 
-// function with arr and amount of selctions as inputs
+// function with inputs arr and desired selction amount
 function selectRandomEntry (arr, amount) {
-  let counter = 0; 
   let outArr = [];
 
-  // counter ticks up, loop breaks when it reaches amount input
-  while (counter < amount) {
+  // loop breaks once output reaches desired amount
+  while (outArr.length < amount) {
     // picking an index for the array, using floor so that results go from 0-5 with array length 6.
     let index = Math.floor (Math.random()*arr.length);
-
-    // push the random index into the output array
-    outArr.push(arr[index]);
-    counter++;
+    
+    // if outArr does not include index value, push the index value into the output array. Otherwise, repeat while-loop.
+    if ( !outArr.includes(arr[index]) ) {
+      outArr.push(arr[index]);
+    }
   }
   return outArr;
 }
 
+
 // Code your buildCrewArray function here:
 
 function buildCrewArray(ids, candidates){
-  newCrew = []
+  let newCrew = [];
+  // loop once for each id
   for (i=0; i < ids.length; i++){
+    // loop through candidate array
     for (j=0; j<candidates.length; j++){
-        if (candidates[j].astronautID === ids[i]){
-          newCrew.push(candidates[j]);
-        }
+      // on each loop, check if candidates[j] id matches id selection input. if it does, push that candidate into the output array
+      if (candidates[j].astronautID === ids[i]){
+        newCrew.push(candidates[j]);
+      }
     }
   }
   return newCrew;
@@ -78,9 +82,17 @@ let candidateF = {
   'astronautID':890
 };
 
+// store animal objects in new array
 let animals = [candidateA,candidateB,candidateC,candidateD,candidateE,candidateF];
 
-// Code your template literal and console.log statements:
-// console.log(buildCrewArray(idNumbers, animals)); 
+// store random ids in new array
+let newIdNumbers = selectRandomEntry(idNumbers, 3);
+console.log(newIdNumbers);
 
-console.log(selectRandomEntry(idNumbers, 3));
+// store crew selection in new array
+let newCrew = buildCrewArray(newIdNumbers, animals)
+
+
+// Code your template literal and console.log statements:
+
+console.log(`${newCrew[0]['name']}, ${newCrew[1]['name']}, and ${newCrew[2]['name']} are going to space!`); 
