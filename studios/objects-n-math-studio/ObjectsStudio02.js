@@ -1,5 +1,10 @@
 // Code your orbitCircumference function here:
+function orbitCircumference (rad) {
 
+  let circumference = 2 * Math.PI * rad
+
+  return circumference
+}
 
 // Code your missionDuration function here:
 
@@ -8,7 +13,7 @@
 
 
 // Code your oxygenExpended function here:
-
+ 
 
 // Candidate data & crew array.
 let candidateA = {
