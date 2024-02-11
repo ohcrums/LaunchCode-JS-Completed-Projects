@@ -1,7 +1,20 @@
 // Code your selectRandomEntry function here:
-function selectRandomEntry (arr) {
-  let index = Math.floor (Math.idNumbers()*arr.length);
-  return arr[index];
+
+// function with arr and amount of selctions as inputs
+function selectRandomEntry (arr, amount) {
+  let counter = 0; 
+  let outArr = [];
+
+  // counter ticks up, loop breaks when it reaches amount input
+  while (counter < amount) {
+    // picking an index for the array, using floor so that results go from 0-5 with array length 6.
+    let index = Math.floor (Math.random()*arr.length);
+
+    // push the random index into the output array
+    outArr.push(arr[index]);
+    counter++;
+  }
+  return outArr;
 }
 
 // Code your buildCrewArray function here:
@@ -68,4 +81,6 @@ let candidateF = {
 let animals = [candidateA,candidateB,candidateC,candidateD,candidateE,candidateF];
 
 // Code your template literal and console.log statements:
-console.log(`${}` buildCrewArray(idNumbers, animals)); 
+// console.log(buildCrewArray(idNumbers, animals)); 
+
+console.log(selectRandomEntry(idNumbers, 3));
