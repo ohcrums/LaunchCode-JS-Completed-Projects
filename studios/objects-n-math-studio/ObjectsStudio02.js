@@ -1,13 +1,28 @@
 // Code your orbitCircumference function here:
 function orbitCircumference (rad) {
-
   let circumference = 2 * Math.PI * rad
-
   return circumference
 }
 
 // Code your missionDuration function here:
+function missionDuration (orbitsToDo, orbitRadius, orbitSpeed) {
+  orbitRadius = 2000; // km
+  orbitSpeed = 28000; // km/hr
 
+  // the math.round (x*100)/100 rounds to nearest 2 decimal
+  // call to circumferance function with radius as input.
+  // 1 orbit = circumference / speed
+  // final calculation = (orbits * circumference) / speed
+  let duration = ( Math.round( 
+    ( ( orbitsToDo * orbitCircumference(orbitRadius) ) / orbitSpeed ) 
+    *100 ) /100 )
+  
+  console.log(`The mission will travel ${Math.round (orbitCircumference(orbitRadius)* 100)/ 100} km around the planet, and it will take ${orbitsToDo} hours to complete.`);
+
+  return duration
+}
+
+missionDuration(5);
 
 // Copy/paste your selectRandomEntry function here:
 
