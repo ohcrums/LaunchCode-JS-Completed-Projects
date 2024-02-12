@@ -25,10 +25,24 @@ function missionDuration (orbitsToDo, orbitRadius, orbitSpeed) {
 missionDuration(5);
 
 // Copy/paste your selectRandomEntry function here:
+function selectRandomEntry (arr, amount) {
+  let outArr = [];
 
+  while (outArr.length < amount) {
+    let index = Math.floor (Math.random()*arr.length);
+    
+    if ( !outArr.includes(arr[index]) ) {
+      outArr.push(arr[index]);
+    }
+  }
+  return outArr;
+}
 
 // Code your oxygenExpended function here:
  
+function oxygenExpended() {
+
+}
 
 // Candidate data & crew array.
 let candidateA = {
