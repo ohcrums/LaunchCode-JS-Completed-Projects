@@ -6,23 +6,22 @@ function orbitCircumference (rad) {
 
 // Code your missionDuration function here:
 function missionDuration (orbitsToDo, orbitRadius, orbitSpeed) {
-  orbitRadius = 2000; // km
-  orbitSpeed = 28000; // km/hr
+  defaultOrbitRadius = orbitRadius || 2000; // km
+  defaultOrbitSpeed = orbitSpeed || 28000; // km/hr
 
   // the math.round (x*100)/100 rounds to nearest 2 decimal
   // call to circumferance function with radius as input.
   // 1 orbit = circumference / speed
   // final calculation = (orbits * circumference) / speed
-  let duration = ( Math.round( 
-    ( ( orbitsToDo * orbitCircumference(orbitRadius) ) / orbitSpeed ) 
+  let duration = Number( Math.round( 
+    ( ( orbitsToDo * orbitCircumference(defaultOrbitRadius) ) / defaultOrbitSpeed ) 
     *100 ) /100 )
   
-  console.log(`The mission will travel ${Math.round (orbitCircumference(orbitRadius)* 100)/ 100} km around the planet, and it will take ${orbitsToDo} hours to complete.`);
+  console.log(`The mission will travel ${Math.round (orbitCircumference(defaultOrbitRadius)* 100)/ 100} km around the planet, and it will take ${orbitsToDo} hours to complete.`);
 
   return duration
 }
 
-missionDuration(5);
 
 // Copy/paste your selectRandomEntry function here:
 function selectRandomEntry (arr, amount) {
@@ -40,9 +39,20 @@ function selectRandomEntry (arr, amount) {
 
 // Code your oxygenExpended function here:
  
-function oxygenExpended() {
+// take candidate object as paramater
+function oxygenExpended(candObject) {
+  // spacewalk lasts 3 orbits, 
+  // use missionDuration to calculate hours
+  let hours = missionDuration(3)
 
+  // use o2used object method to calculate how much o2 they use during spacewalk
+  // round to 3 decimal places, *1000
+  let o2Required = Math.round( candObject['o2Used'](hours) * 1000 ) / 1000
+
+  // return  string 
+  return `${candObject.name} will perform the spacewalk, which will last ${hours} hours and require ${o2Required} kg of oxygen.`
 }
+// oxygenExpended( selectRandomEntry(crew, 1) );
 
 // Candidate data & crew array.
 let candidateA = {
@@ -89,4 +99,7 @@ let candidateA = {
  };
  
  let crew = [candidateA,candidateC,candidateE];
- 
+
+// console.log(candidateA.o2Used(1))
+let tribute = selectRandomEntry(crew, 1)[0]
+console.log( oxygenExpended( tribute ) );
