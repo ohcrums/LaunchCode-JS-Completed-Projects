@@ -1,12 +1,11 @@
 /* Start adding your styling below! */ 
-
 body {
     background-color: lightsalmon;
 }
 
-p {
+/* p {
     color: green
-}
+} */
 
 h1 {
     font-size: 36px;
@@ -20,3 +19,13 @@ h1 {
     color: blueviolet
 }
 
+#cool-text {
+    color: aqua;
+}
+
+p {
+    color: red;
+}
+p {
+    color: green;
+}
